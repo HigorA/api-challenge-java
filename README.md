@@ -1,4 +1,15 @@
 <h1>API Challenge NextIdea - Sprint 2</h1>
+
+<h2>Para Teste</h2>
+<p>Caso deseje testar a aplicação, o usuário que já existe no banco é:</p>
+
+```json
+  {
+    "username": "sprint",
+    "password": "admin123"
+  }
+```
+
 <h2>Objetivo</h2>
 <p>O objetivo da aplicação é utilizar o chatGPT para 
 aprimorar a expêriencia do usuário na busca e descoberta 
