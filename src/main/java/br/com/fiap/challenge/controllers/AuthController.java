@@ -47,4 +47,16 @@ public class AuthController {
 
         }
     }
+
+    @Operation(summary = "Faz a desativação de um usuário.", description = "Desativa um usuário.",
+            tags = {"Autenticação"})
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity delete(@RequestBody AccountCredentialsVO data) {
+        if (data == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid client request!");
+        } else {
+            authServices.deleteUser(data);
+            return ResponseEntity.status(HttpStatus.OK).body("User removed!");
+        }
+    }
 }

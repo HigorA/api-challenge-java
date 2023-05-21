@@ -9,6 +9,7 @@ import br.com.fiap.challenge.repositories.PermissionRepository;
 import br.com.fiap.challenge.repositories.UserRepository;
 import br.com.fiap.challenge.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -64,6 +65,15 @@ public class AuthServices {
         }
         User user = convertVoToEntity(data);
         return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    public void deleteUser(AccountCredentialsVO data) {
+        User user = userRepository.findByUsername(data.getUsername()).orElseThrow(() -> new UsernameNotFoundException("user not found"));
+        if (user != null) {
+            user.deleteUser();
+            userRepository.save(user);
+        }
+
     }
 
     public String passwordEncoder(String password) {

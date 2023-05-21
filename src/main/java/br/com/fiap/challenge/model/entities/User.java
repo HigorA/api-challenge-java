@@ -59,6 +59,10 @@ public class User implements UserDetails, Serializable {
         return roles;
     }
 
+    public void deleteUser() {
+        this.enabled = false;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.permissions;
