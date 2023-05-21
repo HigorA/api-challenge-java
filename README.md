@@ -27,7 +27,8 @@ usuários leigos.</p>
 
 <h2>Arquitetura da Solução</h2>
 
-![DIagrama](componentes-aplicacao.png)
+![Diagrama](componentes-aplicacao.png)
+
 <table>
     <tr>
         <td>Componente</td>
@@ -76,7 +77,8 @@ usuários leigos.</p>
 </table>
 
 <h2>Arquitetura da Solução - Macro</h2>
-![DIagrama](macro.png)
+
+![se não aparecer a imagem abra o macro.png](macro.png)
 
 <h3>Tecnologias</h3>
 <ul>
