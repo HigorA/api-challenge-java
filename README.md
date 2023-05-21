@@ -75,6 +75,19 @@ usuários leigos.</p>
     </tr>
 </table>
 
+<h2>Arquitetura da Solução - Macro</h2>
+![DIagrama](macro.png)
+
+<h3>Tecnologias</h3>
+<ul>
+    <li>Java | Spring Framework</li>
+    <li>React Native</li>
+    <li>Expo</li>
+    <li>Google Cloud Plataform | Google Speech to Text API</li>
+    <li>Banco de Dados Oracle | MySQL</li>
+    <li>Azure</li>
+    <li>API ChatGPT</li>
+</ul>
 
 <h2>Endpoints</h2>
 <table>
@@ -89,9 +102,9 @@ usuários leigos.</p>
         <td>/auth/signin</td>
         <td>
             <code>
-            {</br>
+            {<br/>
                 "username":string, 
-                "password":string</br>
+                "password":string<br/>
             }
             </code>
         </td>
@@ -102,10 +115,10 @@ usuários leigos.</p>
         <td>/auth/signup</td>
         <td>
             <code>
-            { </br>
-              "name": "string", </br>
-              "email": "string", </br>
-              "password": "string" </br>
+            { <br/>
+              "name": "string", <br/>
+              "email": "string", <br/>
+              "password": "string" <br/>
             }
             </code>
         </td>
@@ -116,8 +129,8 @@ usuários leigos.</p>
         <td>/auth/delete</td>
         <td>
             <code>
-            { </br>
-              "id": "numeric", </br>
+            { <br/>
+              "id": "numeric", <br/>
             }
             </code>
         </td>
@@ -135,10 +148,10 @@ usuários leigos.</p>
         <td>/favorite</td>
         <td>
             <code>
-            { </br>
-                "idUser": "numeric", </br>
-                "name": "string", </br>
-                "url": "string" </br>
+            { <br/>
+                "idUser": "numeric", <br/>
+                "name": "string", <br/>
+                "url": "string" <br/>
             }
             </code>
         </td>
@@ -149,9 +162,9 @@ usuários leigos.</p>
         <td>/favorite</td>
         <td>
             <code>
-            { </br>
-                "idUser": "numeric", </br>
-                "idFavorite": "numeric", </br>
+            { <br/>
+                "idUser": "numeric", <br/>
+                "idFavorite": "numeric", <br/>
             }
             </code>
         </td>
