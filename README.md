@@ -142,8 +142,9 @@ usuários leigos.</p>
         <td>/auth/delete</td>
         <td>
             <code>
-            { <br/>
-              "id": "numeric", <br/>
+            { 
+                "username": "string", <br/>
+                "password": "string"
             }
             </code>
         </td>
