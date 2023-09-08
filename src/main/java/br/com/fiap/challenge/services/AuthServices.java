@@ -9,7 +9,6 @@ import br.com.fiap.challenge.repositories.PermissionRepository;
 import br.com.fiap.challenge.repositories.UserRepository;
 import br.com.fiap.challenge.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -87,9 +86,9 @@ public class AuthServices {
 
     private User convertVoToEntity(UserRegisterVO vo) {
         User user = new User();
-        user.setUserName(vo.email());
+        user.setEmail(vo.email());
         user.setPassword(passwordEncoder(vo.password()).substring("{pbkdf2}".length()));
-        user.setFullName(vo.name());
+        user.setName(vo.name());
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);

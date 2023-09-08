@@ -16,25 +16,24 @@ public class Permission implements GrantedAuthority, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_permission")
+    private Long idPermission;
 
     @Column
     private String description;
-
     @Override
     public String getAuthority() {
         return this.description;
     }
-
     public Permission() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdPermission() {
+        return idPermission;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPermission(Long idPermission) {
+        this.idPermission = idPermission;
     }
 
 
@@ -51,12 +50,12 @@ public class Permission implements GrantedAuthority, Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Permission that = (Permission) o;
-        return Objects.equals(id, that.id) && Objects.equals(description, that.description);
+        return Objects.equals(idPermission, that.idPermission) && Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description);
+        return Objects.hash(idPermission, description);
     }
 
 }
