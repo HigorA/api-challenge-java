@@ -6,4 +6,4 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk-alpine
 COPY --from=build target/challenge-0.0.1-SNAPSHOT.jar /opt/challenge.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/opt/MyAssist.jar"]
+ENTRYPOINT ["java","-jar","/opt/challenge.jar"]
