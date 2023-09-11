@@ -1,5 +1,6 @@
 package br.com.fiap.challenge.model;
 
+import br.com.fiap.challenge.model.entities.User;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -22,6 +23,10 @@ public class Favorite implements Serializable {
 
     @Column(length = 11400)
     private String url;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user", nullable = false)
+    private User user;
 
     public Favorite() {
     }
