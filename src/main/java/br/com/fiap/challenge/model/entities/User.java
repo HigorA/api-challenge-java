@@ -51,6 +51,9 @@ public class User implements UserDetails, Serializable {
     )
     private List<Permission> permissions;
 
+    @OneToMany(mappedBy = "user")
+    private List<Favorite> favorites;
+
     public User() {
     }
 

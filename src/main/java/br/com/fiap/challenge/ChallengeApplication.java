@@ -7,7 +7,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@SecurityScheme(name = "javainuseapi", scheme = "bearer", bearerFormat = "JWT",type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER)
+@SecurityScheme(
+		name = "Bearer Authentication",
+		scheme = "bearer",
+		bearerFormat = "JWT",
+		type = SecuritySchemeType.HTTP
+)
 public class ChallengeApplication {
 
 	public static void main(String[] args) {

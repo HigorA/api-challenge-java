@@ -1,6 +1,5 @@
-package br.com.fiap.challenge.model;
+package br.com.fiap.challenge.model.entities;
 
-import br.com.fiap.challenge.model.entities.User;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -59,6 +58,14 @@ public class Favorite implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
