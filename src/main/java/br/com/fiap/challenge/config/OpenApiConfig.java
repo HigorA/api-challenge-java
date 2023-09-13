@@ -14,7 +14,7 @@ public class OpenApiConfig {
         return new OpenAPI().info(new Info()
                 .title("RESTFUL API Challenge")
                 .version("v1")
-                .description("API Manipula dados de Clientes")
+                .description("API do Challenge - Fiap")
                 .termsOfService("")
                 .license(new License().name("Apache 2.0").url(""))
         );

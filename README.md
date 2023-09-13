@@ -1,12 +1,28 @@
-<h1>API Challenge NextIdea - Sprint 2</h1>
+<h1>API Challenge NextIdea - Sprint 3 - Enterprise Application Development</h1>
+
+
+<h2>ATENÇÂO!</h2>
+<p>Antes de iniciar os testes, é importante ressaltar 3 pontos:</p>
+<ul>
+    <li>1. O Banco de Dados utilizado na aplicação está na nuvem, na plataforma da azure, caso deseje, é possivel se conectar ao banco usando o MySql Workbench ou algum programa similar.</li>
+    <li>2. Esta aplicação ja está online, e pode ser testada sem a necessidade de instalar localmente.</li>
+    <li>3. Esta aplicação também conta com a implementação do Swagger, ferramenta usada para documentação e para teste de API's.</li>
+</ul>
+
+<h2>Integrantes</h2>
+<ul>
+    <li>Nome: Higor Alves Santos | RM: 93359</li>
+    <li>Nome: Karina Conceição Machado da Costa | RM: 96164</li>
+    <li>Nome: Lucas Marques de Souza | RM: 95418</li>
+</ul>
 
 <h2>Para Teste</h2>
 <p>Caso deseje testar a aplicação, o usuário que já existe no banco é:</p>
 
 ```json
   {
-    "username": "sprint",
-    "password": "admin123"
+      "username": "marcus.leite@gmail.com",
+      "password": "marcusleite"
   }
 ```
 
@@ -17,6 +33,39 @@ de produtos. O chatGPT irá funcionar como um
 assistente pessoal de compras que irá abstrair os termos 
 complexos dos produtos tornando-os de fácil compreensão para
 usuários leigos.</p>
+
+<h2>Principais Funcionalidades</h2>
+<table>
+    <tr>
+        <td>Componente</td>
+        <td>Descrição</td>
+    </tr>
+    <tr>
+        <td>Login</td>
+        <td>O usuário é capaz de realizar login informando suas credenciais, username e password.</td>
+    </tr>
+    <tr>
+        <td>Cadastro de Novo Usuário</td>
+        <td>O usuário é capaz de realizar o cadastro informando os campos necessários. name, email e password.</td>
+    </tr>
+    <tr>
+        <td>Desativa usuário</td>
+        <td>O usuário é capaz de desativar o sua conta.</td>
+    </tr>
+    <tr>
+        <td>Adiciona favorito</td>
+        <td>O usuário é capaz de adicionar um favorito vinculado a sua conta.</td>
+    </tr>
+    <tr>
+        <td>Deleta favorito</td>
+        <td>O usuário é capaz de deletar um favorito vinculado a sua conta.</td>
+    </tr>
+    <tr>
+        <td>Listar favoritos</td>
+        <td>O usuário é capaz de listar todos os favoritos vinculados a sua conta.</td>
+    </tr>
+</table>
+
 
 <h2>Escopo</h2>
 <p>Para tornar está solução realidade, o projeto irá utilizar</p>
@@ -92,13 +141,13 @@ usuários leigos.</p>
 ![se não aparecer a imagem abra o macro.png](macro.png)
 
 <h3>Tecnologias</h3>
+<p>Tecnologias usadas tanto no front-end como no back-end</p>
 <ul>
     <li>Java | Spring Framework</li>
     <li>React Native</li>
     <li>Expo</li>
     <li>Google Cloud Plataform | Google Speech to Text API</li>
-    <li>Banco de Dados Oracle | MySQL</li>
-    <li>Azure</li>
+    <li>Azure MySQL</li>
     <li>API ChatGPT</li>
 </ul>
 
