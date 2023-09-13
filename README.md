@@ -1,7 +1,11 @@
 <h1>API Challenge NextIdea - Sprint 3 - Enterprise Application Development</h1>
 
+<h2>A API está online!</h2>
+<p>Para acessar basta clicar no link abaixo:</p>
+<a href="http://challenge93359.eastus.azurecontainer.io:8080/swagger-ui/index.html#/">API, Clique Aqui.</a>
 
 <h2>ATENÇÂO!</h2>
+
 <p>Antes de iniciar os testes, é importante ressaltar 3 pontos:</p>
 <ul>
     <li>1. O Banco de Dados utilizado na aplicação está na nuvem, na plataforma da azure, caso deseje, é possivel se conectar ao banco usando o MySql Workbench ou algum programa similar.</li>
