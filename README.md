@@ -1,15 +1,11 @@
 <h1>API Challenge NextIdea - Sprint 3 - Enterprise Application Development</h1>
 
-<h2>A API está online!</h2>
-<p>Para acessar basta clicar no link abaixo:</p>
-<a href="http://challenge93359.eastus.azurecontainer.io:8080/swagger-ui/index.html#/">API, Clique Aqui.</a>
 
 <h2>ATENÇÂO!</h2>
 
 <p>Antes de iniciar os testes, é importante ressaltar 3 pontos:</p>
 <ul>
-    <li>1. O Banco de Dados utilizado na aplicação está na nuvem, na plataforma da azure, caso deseje, é possivel se conectar ao banco usando o MySql Workbench ou algum programa similar.</li>
-    <li>2. Esta aplicação ja está online, e pode ser testada sem a necessidade de instalar localmente.</li>
+    <li>1. O Banco de Dados que a aplicação estava utilizando estava na nuvem, na plataforma da azure, por isso, agora é necessário configurar uma conexão com o banco de dados localmente. </li>
     <li>3. Esta aplicação também conta com a implementação do Swagger, ferramenta usada para documentação e para teste de API's.</li>
 </ul>
 
@@ -19,16 +15,6 @@
     <li>Nome: Karina Conceição Machado da Costa | RM: 96164</li>
     <li>Nome: Lucas Marques de Souza | RM: 95418</li>
 </ul>
-
-<h2>Para Teste</h2>
-<p>Caso deseje testar a aplicação, o usuário que já existe no banco é:</p>
-
-```json
-  {
-      "username": "marcus.leite@gmail.com",
-      "password": "marcusleite"
-  }
-```
 
 <h2>Objetivo</h2>
 <p>O objetivo da aplicação é utilizar o chatGPT para 
