@@ -2,14 +2,10 @@ package br.com.fiap.challenge.services;
 
 import br.com.fiap.challenge.model.request.ChatGPTRequest;
 import br.com.fiap.challenge.model.response.ChatGPTResponse;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @Service
 public class OpenAIService {
@@ -36,7 +32,9 @@ public class OpenAIService {
     }
 
     private ChatGPTRequest createRequestBody(String topic) {
-        String question = "Organize em ordem crescente, de acordo com o preço do produto, o produto mais barato ao mais caro\n" + topic;
+        String question = "Organize em ordem crescente, de acordo com o preço do produto, " +
+                "o produto mais barato ao mais caro e me retorne no mesmo formato que foi enviado\n"
+                + topic;
         System.out.println(question);
         return new ChatGPTRequest(
                 "text-davinci-003",
