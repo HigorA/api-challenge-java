@@ -7,7 +7,7 @@ trigger:
 - configure_pipeline
 
 stages:
-- stage: Build Artifact
+- stage: Build 
   jobs:
   - job: Buildjob
     pool:
@@ -38,7 +38,7 @@ stages:
       inputs:
         targetFolder: '$(Build.ArtifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
-      displayName: Publish Artifact
+      displayName: Publish 
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
