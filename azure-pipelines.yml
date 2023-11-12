@@ -55,7 +55,7 @@ stages:
           buildType: current
           downloadType: 'single'
           artifactName: 'drop'
-          downloadPath: '$(System.ArtifactStagingDirectory)'
+          downloadPath: '$(System.ArtifactsDirectory)'
       - task: AzureFunctionApp@1
         inputs:
               azureSubscription: 'Azure for Students (44778ee6-f4cc-4173-b5f1-7eef09f79981)'
