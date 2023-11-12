@@ -38,7 +38,7 @@ stages:
       inputs:
         targetFolder: '$(Build.ArtifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
-      displayName: Publish 
+      displayName: 'Publish '
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
@@ -55,10 +55,10 @@ stages:
           buildType: current
           downloadType: 'single'
           artifactName: 'drop'
-          downloadPath: '$(System.ArtifactsDirectory)'
+          downloadPath: '$(System.ArtifactStagingDirectory)'
       - task: AzureFunctionApp@1
         inputs:
-              azureSubscription: 'Azure for Students (51acd94c-c938-4d39-a264-200c641c2b6d)'
+              azureSubscription: 'Azure for Students (44778ee6-f4cc-4173-b5f1-7eef09f79981)'
               appType: 'functionApp'
               appName: 'challenge-plusoft'
               package: '$(System.ArtifactsDirectory)'
