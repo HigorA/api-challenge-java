@@ -58,10 +58,13 @@ stages:
           downloadPath: '$(System.ArtifactsDirectory)'
       - task: AzureFunctionApp@1
         inputs:
+              ConnectionType: 'AzureRM'
               azureSubscription: 'Azure for Students (44778ee6-f4cc-4173-b5f1-7eef09f79981)'
-              appType: 'functionApp'
-              appName: 'challenge-plusoftrm93359'
-              package: '$(System.ArtifactsDirectory)'
+              appType: 'webApp'
+              WebAppName: 'challenge-plusoftrm93359'
+              packageForLinux: '$(System.ArtifactsDiretory)/**/*.zip'
+              AppSettings: '-novaConfiguracao "somente teste"'
+#              package: '$(System.ArtifactsDirectory)'
 
           
 
