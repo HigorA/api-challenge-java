@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class SerpAPIService {
 
@@ -58,7 +59,7 @@ public class SerpAPIService {
                 List<ShoppingItemResponse> shoppingItems = new ArrayList<>();
 
                 if (shoppingResults.isArray()) {
-                    int maxItems = 4;
+                    int maxItems = 3;
                     for (JsonNode item : shoppingResults) {
                         ShoppingItem shoppingItem = objectMapper.treeToValue(item, ShoppingItem.class);
                         shoppingItems.add(new ShoppingItemResponse(shoppingItem));
@@ -81,6 +82,14 @@ public class SerpAPIService {
         StringBuilder formattedItems = new StringBuilder();
 
         for (ShoppingItemResponse item : shoppingItems) {
+//            formattedItems.append("[{").append("\n").append('"').append("\ntitle").append('"').append(": ").append('"').append(item.title()).append('"');
+//            formattedItems.append(",\n").append('"').append("link").append('"').append(": ").append('"').append(item.link()).append('"');
+//            formattedItems.append(",\n").append('"').append("source").append('"').append(": ").append('"').append(item.source()).append('"');
+//            formattedItems.append(",\n").append('"').append("price").append('"').append(": ").append('"').append(item.price()).append('"');
+//            formattedItems.append(",\n").append('"').append("rating").append('"').append(": ").append('"').append(item.rating()).append('"');
+//            formattedItems.append(",\n").append('"').append("thumbnail").append('"').append(": ").append('"').append(item.thumbnail()).append('"');
+//            formattedItems.append(",\n").append('"').append("delivery").append('"').append(": ").append('"').append(item.delivery()).append('"');
+//            formattedItems.append("\n}]");
             formattedItems.append("title: ").append(item.title());
             formattedItems.append(" link: ").append(item.link());
             formattedItems.append(" source: ").append(item.source());
@@ -88,7 +97,7 @@ public class SerpAPIService {
             formattedItems.append(" rating: ").append(item.rating());
             formattedItems.append(" thumbnail: ").append(item.thumbnail());
             formattedItems.append(" delivery: ").append(item.delivery());
-            formattedItems.append("\n");
+            formattedItems.append("\n\n\n");
         }
 
         return formattedItems.toString();

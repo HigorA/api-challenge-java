@@ -33,7 +33,7 @@ public class OpenAIService {
 
     private ChatGPTRequest createRequestBody(String topic) {
         String question = "Organize em ordem crescente, de acordo com o preço do produto, " +
-                "o produto mais barato ao mais caro e me retorne no mesmo formato que foi enviado\n"
+                "o produto mais barato ao mais caro e me retorne como um json, as chaves do json como por exemplo, title, devem estar entre aspas duplas, além disso, tire os R$ do price, deixe apenas os numeros, se for mais de 2 item, me retorne como um array de json\n"
                 + topic;
         System.out.println(question);
         return new ChatGPTRequest(
