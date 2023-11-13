@@ -226,3 +226,124 @@ usuários leigos.</p>
 </table>
 
 
+<h1>Passo a Passo – Processo de CI/CD<h1/>
+    
+Para criação da pipeline de Build do projeto, acesse o portal do Azure Devops e a aba pipelines. Feito isso, clique em “New pipeline” para criar uma nova pipeline.
+ 
+Essa criação será feita através do modo clássico, então clique em “Use the classic editor” para seguir com a criação da pipeline.
+ 
+
+![image](https://github.com/HigorA/api-challenge-java/assets/87673337/09da9682-dc26-4acd-920a-f39cc45a9743)
+
+
+
+
+Agora será necessário selecionar o software de versionamento no qual se encontra o projeto, no caso deste projeto é o Github. Logo, seleciona essa opção e informa o repositório para o qual iremos criar a pipeline e a branch Default para builds manuais e por trigger. Clique em “continue”.
+![image](https://github.com/HigorA/api-challenge-java/assets/87673337/b2fc2d34-0de1-4519-b8fd-abd34bd285ac)
+
+ 
+Considerando que nossa aplicação se trata de uma API Java, iremos utilizar o maven para baixar as dependências do projeto. Por isso, procure por Maven e clique no botão “Apply”.
+ 
+
+
+
+
+
+Nesta etapa de configuração da Pipeline, selecione a Agent pool que seja e a Agent Specification, no qual a aplicação irá rodar. Nos parâmetros seleciona o arquivo pom do repositório;
+ 
+Em seguida, na configuração de “Get sources”, mantenha as informações dessa forma, selecionando o software no qual se encontra o repositório da aplicação, especificando a mesma e a branch Default.
+ 
+
+Na configuração do Agent job 1, seleciona a mesma Agent pool e Specification escolhidas anteriormente.
+ 
+Na mesma etapa, selecione novamente o arquivo pom.xml do projeto.
+ 
+
+
+Ainda na configuração do Maven, um ponto bastante importante para essa etapa é a versão do Java que iremos utilizar para fazer a Build do projeto, pois a versão selecionada deve ser compatível com a usada na aplicação, caso contrário será apresentado um erro no download das dependências.
+ 
+Em “Copy Files” deixe dessa forma, nessa etapa iremos copiar os arquivos que foram baixados na etapa anterior, isto é, a do Maven, na qual foram baixadas as dependências necessárias para rodar o projeto.
+
+ 
+Para configuração da última “Task”, escolha um nome para o artefato que será gerado na Build e o nome que será mostrado durante a Build, no caso o “displayName”. Com relação ao path no qual o artefato será publicado, mantenha o mesmo apresentado abaixo.
+ 
+
+
+Uma etapa importante para mantermos o processo de Continuous Integration e Continuous Delivery, vá na aba “Triggers” e selecione o check box “Enable continuous integration”. É necessário fazermos isso para que quando pegarmos o script yml da pipeline, ele informe que uma nova pipeline será iniciada no Azure Devops a cada novo commit para a branch especificada, nesse caso a main. Feito isso, salve e enfileire a aplicação.
+
+ 
+Especifique a Agent pool e Specification com os mesmos valores de anteriormente, selecione a branch main e clique em “Run” para iniciar a pipeline de Build.
+ 
+A nova pipeline será mostrada assim, clique no “Agent job 1” para ver as tasks com maior nível de detalhamento.
+ 
+Os Steps serão apresentados dessa forma. Nesse caso, obtivemos uma build de sucesso.
+ 
+
+
+É possível identificar, ao voltarmos para a página na qual vemos a pipeline que rodou, que o artefato da build foi gerado, pois há “1 published”, que informa a criação de um artefato.
+ 
+
+Pipeline de Release
+
+Agora iremos configurar a pipeline de release, para que possamos fazer o deploy da aplicação. Vá para a aba “Releases” do menu lateral e clique em “new” para criar uma nova pipeline de release.
+ 
+Selecione um nome para o stage de release, clique no “X” após isso e clique em “+Add” para adicionar um artefato.
+ 
+
+
+
+
+
+Na etapa de configuração do artefato informa o nome do projeto no qual se encontra, o projeto no qual foi rodado a pipeline que gerou o artefato que será usado para fazer o deploy e deixe o Default version com o valor abaixo. 
+ 
+
+Na aba Tasks, adicione o serviço abaixo para realizar o deploy do web app. Na etapa de release, informe o nome do web app que foi criado na sua conta Azure e sua subscription.
+ 
+Em Run on agent, seleciona novamente a Agent pool e Specification.
+ 
+Ainda na mesma etapa de configuração, selecione o local no projeto no qual a pipeline de build gerou o artefato e especifique o caminho para esse artefato.
+ 
+
+
+Na última etapa de configuração do serviço de deploy, informe os dados abaixo e mantenha o nome do mesmo web app informado anteriormente.
+ 
+Especifique novamente o caminho para o artefato gerado na pipeline de Build e clique em “create release”.
+ 
+
+
+Clique em create para criar a pipeline de release.
+ 
+Ela será apresentada dessa forma como a pipeline “Release 2” na aba de releases, que está em andamento.
+ 
+
+
+
+
+
+Ao clicar naquela pipeline da página anterior, essa será aberta, informando que a etapa de release está em andamento.
+ 
+
+Ao clicar no stage de release, essa página com o detalhamento dos Steps rodados para o deplouy será apresentada.
+ 
+
+Ao clicar no step de deploy, após a finalização do processo da pipeline, ele mostrará a URL na qual o serviço está rodando.
+ 
+
+Script yml
+Um ponto importante, é que escolhemos fazer a build do modo clássico, mas ainda é possível exportar essas configurações que fizemos e unir em um arquivo único de configuração de pipeline. Abaixo seguem os locais nos quais podemos pegar os scripts yaml:
+
+
+
+
+
+
+
+
+Na pipeline de release, podemos pegar o do serviço de deploy ao clicar nesse “View YAML”
+ 
+E no de build, ao clicarmos nesses três pontos haverá a mesma opção para exportar o script de build.
+ 
+
+
+
+

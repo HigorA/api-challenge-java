@@ -1,70 +1,46 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
+variables:
+- name: BuildParameters.mavenPOMFile
+  value: pom.xml
 trigger:
-- main 
-
-stages:
-- stage: Build 
-  jobs:
-  - job: Buildjob
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'pom.xml'
-        mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.17'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        goals: 'package'
-    - task: Maven@4
-      displayName: Build
-      inputs:
-        mavenPomFile: 'pom.xml'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
-    - task: CopyFiles@2
-      inputs:
-        targetFolder: '$(Build.ArtifactStagingDirectory)'
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish '
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
-- stage: Deploy
-  jobs:
-    - job: Deploy 
-      pool: 
-        vmImage: ubuntu-latest
-      steps: 
-      - task: DownloadBuildArtifacts@1
-        displayName: 'Download Build'
-        inputs:
-          buildType: current
-          downloadType: 'single'
-          artifactName: 'drop'
-          downloadPath: '$(System.ArtifactsDirectory)'
-      - task: AzureFunctionApp@1
-        inputs:
-              ConnectionType: 'AzureRM'
-              azureSubscription: 'Azure for Students (44778ee6-f4cc-4173-b5f1-7eef09f79981)'
-              appType: 'webApp'
-              WebAppName: 'challenge-plusoftrm93359'
-              packageForLinux: '$(System.ArtifactsDiretory)/**/*.zip'
-              AppSettings: '-novaConfiguracao "somente teste"'
-#              package: '$(System.ArtifactsDirectory)'
-
-          
-
+  branches:
+    include:
+    - main
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/main
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+    clean: true
+    fetchTags: false
+  - task: Maven@3
+    displayName: Maven pom.xml
+    inputs:
+      mavenPOMFile: $(BuildParameters.mavenPOMFile)
+      jdkVersion: 1.17
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: '**/*.jar'
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+  - task: AzureRmWebAppDeployment@4
+    displayName: 'Deploy Azure App Service'
+    inputs:
+      azureSubscription: '$(Parameters.ConnectedServiceName)'
+      appType: '$(Parameters.WebAppKind)'
+      WebAppName: '$(Parameters.WebAppName)'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/_Lab Azure Cloud-Maven-CI (1)/drop/target/challenge-0.0.1-SNAPSHOT.jar'
