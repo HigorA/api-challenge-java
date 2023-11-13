@@ -226,7 +226,7 @@ usuários leigos.</p>
 </table>
 
 
-<h1>Passo a Passo – Processo de CI/CD<h1/>
+<h1>Passo a Passo – Processo de CI/CD</h1>
     
 <p>Para criação da pipeline de Build do projeto, acesse o portal do Azure Devops e a aba pipelines. Feito isso, clique em “New pipeline” para criar uma nova pipeline.</p>
  
@@ -254,18 +254,21 @@ Essa criação será feita através do modo clássico, então clique em “Use t
 
  
 <p>Em seguida, na configuração de “Get sources”, mantenha as informações dessa forma, selecionando o software no qual se encontra o repositório da aplicação, especificando a mesma e a branch Default.</p>>
+
  ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/50e181a2-d567-43ba-8c44-fd7a98489cb5)
 
 
 <p>
 Na configuração do Agent job 1, seleciona a mesma Agent pool e Specification escolhidas anteriormente.
 </p>
+
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/d20e689a-88e5-4a22-a289-4772b4984e74)
 
 
 <p>
 Na mesma etapa, selecione novamente o arquivo pom.xml do projeto.
 </p>
+
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/c2964f5f-51ac-469a-a7eb-a5add85925df)
 
 
