@@ -1,4 +1,4 @@
-![image](https://github.com/HigorA/api-challenge-java/assets/87673337/b034cac1-9434-45f8-aa9c-a6f9c374c581)<h1>API Challenge NextIdea - Sprint 3 - Enterprise Application Development</h1>
+<h1>API Challenge NextIdea - Sprint 3 - Enterprise Application Development</h1>
 
 
 <h2>ATENÇÂO!</h2>
