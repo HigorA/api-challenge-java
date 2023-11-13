@@ -225,6 +225,10 @@ usuários leigos.</p>
     </tr>
 </table>
 
+<h1>Desenho da arquitetura da pipeline</h1>
+
+![image](https://github.com/HigorA/api-challenge-java/assets/87673337/0f211200-1853-479d-8201-866f62163f97)
+
 
 <h1>Passo a Passo – Processo de CI/CD</h1>
     
