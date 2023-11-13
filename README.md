@@ -239,6 +239,7 @@ Essa criação será feita através do modo clássico, então clique em “Use t
 
 
 <p>Agora será necessário selecionar o software de versionamento no qual se encontra o projeto, no caso deste projeto é o Github. Logo, seleciona essa opção e informa o repositório para o qual iremos criar a pipeline e a branch Default para builds manuais e por trigger. Clique em “continue”.<p/>
+    
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/b2fc2d34-0de1-4519-b8fd-abd34bd285ac)
 
  
@@ -355,6 +356,7 @@ Na etapa de configuração do artefato informa o nome do projeto no qual se enco
 
 <p>
 Na aba Tasks, adicione o serviço abaixo para realizar o deploy do web  app. Na etapa de release, informe o nome do web app que foi criado na sua conta Azure e sua subscription.
+    
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/397c1583-4abb-4aa4-ad53-7f11f0bd361e)
 
 <p>
@@ -443,6 +445,7 @@ E no de build, ao clicarmos nesses três pontos haverá a mesma opção para exp
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/7eca2ab9-b137-4ffc-9d06-1eb6447c5fb7)
 
 <p>Após o deploy, utilizamos aquele link no qual a aplicação está rodando e adicionamos a rota do Swagger, posto que nosso backend possui essa integração. Desta forma, podemos testar a aplicação rodando no web app.</p>
+
 ![image](https://github.com/HigorA/api-challenge-java/assets/87673337/6b9fff96-966f-46b0-912e-0c9aa2bf6db0)
 
 
