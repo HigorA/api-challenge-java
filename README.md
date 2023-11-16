@@ -3,6 +3,11 @@
 
 <h2>ATENÇÂO!</h2>
 
+
+<h2>Videos</h2>
+<p>Video de IoT: <a href="https://youtu.be/l9UM0K7F68g?si=Sk7T7NnT8hNb2jCM">video</a></p>
+<p>Video de Enterprise: <a href="https://www.youtube.com/watch?v=beAsNiX7VyY">video</a></p>
+
 <p>Antes de iniciar os testes, é importante ressaltar 3 pontos:</p>
 <ul>
     <li>1. O Banco de Dados que a aplicação estava utilizando estava na nuvem, na plataforma da azure, por isso, agora é necessário configurar uma conexão com o banco de dados localmente. </li>
